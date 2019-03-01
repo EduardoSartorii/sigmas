@@ -1,0 +1,375 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+{% include 'base/head.html' %}
+<body class="fix-header fix-sidebar card-no-border">
+
+<!-- Main wrapper - arquivo de configuração pages.scss -->
+    <div id="main-wrapper">
+    {% include 'base/header.html' %}     
+    {% include 'base/aside.html' %}
+         <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- FATURAMENTO DE HOJE E DE ONTEM -->
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor">Dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-7 col-4 align-self-center">
+                        <div class="d-flex m-t-10 justify-content-end">
+                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
+                                <div class="chart-text m-r-10">
+                                    <h6 class="m-b-0"><small>Hoje</small></h6>
+                                    <h4 class="m-t-0 text-info">R$10000</h4>
+                                </div>
+                                <div class="spark-chart">
+                                    <div id="monthchart"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex m-r-20 m-l-10 hidden-md-down">
+                                <div class="chart-text m-r-10">
+                                    <h6 class="m-b-0"><small>Ontem</small></h6>
+                                    <h4 class="m-t-0 text-primary">R$10,0000</h4>
+                                </div>
+                                <div class="spark-chart">
+                                    <div id="lastmonthchart"></div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i
+                                        class="ti-settings text-white"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+
+                <!-- End Bread crumb and right sidebar toggle -->
+                
+                <!-- Start Page Content -->
+
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <!-- Grafico de vendas e quantidade de pessoas -->                    
+                    <div class="col-lg-8 col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex flex-wrap">
+                                            <div>
+                                                <h3 class="card-title">Visão geral de vendas</h3>
+                                                <h6 class="card-subtitle">lucro amplo de vendas durante a semana</h6>
+                                            </div>
+                                            <div class="ml-auto">
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Pessoas</h6>
+                                                    </li>
+                                                    <li>
+                                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>Recebimento</h6>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="amp-pxl" style="height: 360px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- Grafico de qual tipo de essencia é mais fumado--> 
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">Categorias de essências</h3>
+                                <h6 class="card-subtitle">Diferentes tipos de essências</h6>
+                                <div id="visitor" style="height:290px; width:100%;"></div>
+                            </div>
+                            <div>
+                                <hr class="m-t-0 m-b-0">
+                            </div>
+                            <div class="card-body text-center ">
+                                <ul class="list-inline m-b-0">
+                                    <li>
+                                        <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10 "></i>Cítricas</h6>
+                                    </li>
+                                    <li>
+                                        <h6 class="text-muted  text-primary"><i class="fa fa-circle font-10 m-r-10"></i>Mentoladas</h6>
+                                    </li>
+                                    <li>
+                                        <h6 class="text-muted  text-success"><i class="fa fa-circle font-10 m-r-10"></i>Doces</h6>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->             
+                </div>
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card card-inverse card-primary">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="m-r-20 align-self-center">
+                                        <h1 class="text-white"><i class="ti-hand-drag"></i></h1>
+                                    </div>
+                                    <div>
+                                        <h3 class="card-title">Narguiles restantes</h3>
+                                        <h6 class="card-subtitle">Disponíveis</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 align-self-center">
+                                        <h2 class="font-light text-white">10</h2>
+                                    </div>
+                                    <div class="col-8 p-t-10 p-b-20 align-self-center">
+                                        <div class="usage chartist-chart" style="height:65px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card card-inverse card-success">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="m-r-20 align-self-center">
+                                        <h1 class="text-white"><i class="icon-loop"></i></h1>
+                                    </div>
+                                    <div>
+                                        <h3 class="card-title">Mesas</h3>
+                                        <h6 class="card-subtitle">Disponíveis</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 align-self-center">
+                                        <h2 class="font-light text-white">20</h2>
+                                    </div>
+                                    <div class="col-8 p-t-10 p-b-20 text-right">
+                                        <div class="spark-count" style="height:65px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card">
+                            <img class="" src="../assets/images/background/weatherbg.jpg" alt="Card image cap">
+                            <div class="card-img-overlay" style="height:110px;">
+                                <h3 class="card-title text-white m-b-0 dl">Osasco</h3>
+                                <small class="card-text text-white font-light">Sexta 01 Março</small>
+                            </div>
+                            <div class="card-body weather-small">
+                                <div class="row">
+                                    <div class="col-8 b-r align-self-center">
+                                        <div class="d-flex">
+                                            <div class="display-6 text-info"><i class="wi wi-day-rain-wind"></i></div>
+                                            <div class="m-l-20">
+                                                <h1 class="font-light text-info m-b-0">23<sup>0</sup></h1>
+                                                <small>Dia chuvoso</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <h1 class="font-light m-b-0">25<sup>0</sup></h1>
+                                        <small>Amanhã</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <!-- Column -->
+                        <div class="card">
+                            <img class="card-img-top" src="../assets/images/background/profile-bg.gif" alt="Card image cap">
+                            <div class="card-body little-profile text-center">
+                                <div class="pro-img"><img src="../assets/images/users/4.jpg" alt="user" /></div>
+                                <h3 class="m-b-0">Sigmas Hookah</h3>
+                                <p>Lounge &amp; Tabacaria</p>
+                                <a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded">Acessar</a>
+                                <div class="row text-center m-t-20">
+                                    <div class="col-lg-4 col-md-4 m-t-20">
+                                        <h3 class="m-b-0 font-light">01/01/01</h3><small>Fundado</small>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 m-t-20">
+                                        <h3 class="m-b-0 font-light">23,469</h3><small>Seguidores</small>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 m-t-20">
+                                        <h3 class="m-b-0 font-light">6035</h3><small>Seguindo</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                        <div class="card">
+                            <div class="card-body bg-info">
+                                <h4 class="text-white card-title">Funcionários</h4>
+                                <h6 class="card-subtitle text-white m-b-0 op-5">Nossos colaboradores</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="message-box contact-box">
+                                    <h2 class="add-ct-btn"><button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark">+</button></h2>
+                                    <div class="message-widget contact-widget">
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"><span class="round">R</span><span class="profile-status online pull-right"></span>
+                                            </div>
+                                            <div class="mail-contnet">
+                                                <h5>Renan</h5> <span class="mail-desc">renan@sigmas.com</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <span class="round">R</span><span class="profile-status busy pull-right"></span>
+                                            </div>
+                                            <div class="mail-contnet">
+                                                <h5>Renato</h5> <span class="mail-desc">renato@sigmas.com</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <span class="round">V</span>  <span class="profile-status away pull-right"></span>
+                                            </div>
+                                            <div class="mail-contnet">
+                                                <h5>Vitor</h5> <span class="mail-desc">vitor@sigmas.com</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <span class="round">F</span><span class="profile-status offline pull-right"></span>
+                                            </div>
+                                            <div class="mail-contnet">
+                                                <h5>Fulano</h5> <span class="mail-desc">fulano@sigmas.com</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs profile-tab" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Eventos</a>
+                                </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Perfil</a>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home" role="tabpanel">
+                                    <div class="card-body">
+                                        <div class="profiletimeline">                                                                                
+                                            <div class="sl-item">
+                                                <div class="sl-left"> <img src="../assets/images/users/4.jpg" alt="user"
+                                                        class="img-circle"> </div>
+                                                <div class="sl-right">
+                                                    <div><a href="#" class="link">SIGMA'S</a> <span class="sl-date">5
+                                                            minutes ago</span>
+                                                        <p class="m-t-10"> Hoje será realizado o evento com a participação do Dj Urso, até as 02:00 PM.
+                                                        Por favor vamos ter mais atenção.
+                                                        A gerência agradece  </p>
+                                                    </div>
+                                                    <div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2
+                                                            comment</a> <a href="javascript:void(0)" class="link m-r-10"><i
+                                                                class="fa fa-heart text-danger"></i> 5 Love</a> </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="sl-item">
+                                                <div class="sl-left"> <img src="../assets/images/users/4.jpg" alt="user"
+                                                        class="img-circle"> </div>
+                                                <div class="sl-right">
+                                                    <div><a href="#" class="link">SIGMA'S</a> <span class="sl-date">5
+                                                            minutes ago</span>
+                                                        <blockquote class="m-t-10">
+                                                           INSIRA UM COMENTÁRIO...
+                                                        </blockquote>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--second tab-->
+                                <div class="tab-pane" id="profile" role="tabpanel">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Nome</strong>
+                                                <br>
+                                                <p class="text-muted">Administrador</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Telefone</strong>
+                                                <br>
+                                                <p class="text-muted">(11)94033-1127</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
+                                                <br>
+                                                <p class="text-muted">sigmas@sigmas.com</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6"> <strong>Localização</strong>
+                                                <br>
+                                                <p class="text-muted">Osasco</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <p class="m-t-30">Conta de modelo administrativo com alguns acessos especiais</p>
+                                        <p>Acesso a modelos financeiros extrato de quanto foi gasto e ganho nos dias,meses e anos entre outras funções que estão disponiveis apenas para usuários administrativo</p>
+                                        </div>
+                                    </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End PAge Content -->
+                <!-- Right sidebar -->
+                <!-- .right-sidebar -->
+                <div class="right-sidebar">
+                    <div class="slimscrollright">
+                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span>
+                        </div>
+                        <div class="r-panel-body">
+                            <ul id="themecolors" class="m-t-20">
+                                <li><b>With Light sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
+                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
+                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
+                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
+                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
+                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>                        
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'base/footer.html' %}
+        </div>
+        {% include 'scripts/script.html' %}
+</body>
+</html>

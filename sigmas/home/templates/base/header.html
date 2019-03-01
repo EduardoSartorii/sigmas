@@ -1,0 +1,59 @@
+{%load static%}
+<!-- Barra de cima de menu - arquivo de configuração pages.scss -->
+<header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- Logo -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                            <!-- Light Logo icon -->
+                            <span>SIGMA'S</span>
+                    </a>
+                </div>
+                <!-- End Logo -->
+               <div class="navbar-collapse">
+                    <!-- toggle and nav items -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                href="{% static 'javascript:void(0)' %}"><i class="mdi mdi-menu"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
+                                href="{% static 'javascript:void(0)' %]"><i class="ti-menu"></i></a> </li>
+                        <!-- Search -->
+                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark"
+                                href="{% static 'javascript:void(0)' %]"><i class="ti-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i
+                                        class="ti-close"></i></a> </form>
+                        </li>                
+                    </ul>
+                    <!-- User profile and search -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- Profile -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><img src="{% static '../assets/images/users/1.jpg' %}" alt="user"
+                                    class="profile-pic" /></a>
+                            <div class="dropdown-menu dropdown-menu-right scale-up">
+                                <ul class="dropdown-user">
+                                    <li>
+                                        <div class="dw-user-box">
+                                            <div class="u-img"><img src="{% static '../assets/images/users/1.jpg' %}" alt="user"></div>
+                                            <div class="u-text">
+                                                <h4>Administrador</h4>
+                                                <p class="text-muted">admin@sigmas.com</p><a href="#" class="btn btn-rounded btn-danger btn-sm">Ver
+                                                    Perfil</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#"><i class="ti-user"></i> Meu Perfil</a></li>
+                                    <li><a href="#"><i class="ti-wallet"></i> Meus Relatórios</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#"><i class="ti-settings"></i>Configurações</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>                    
+            </nav>       
+</header> 
