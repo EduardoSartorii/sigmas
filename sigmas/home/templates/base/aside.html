@@ -13,7 +13,7 @@
                                 Meus Relatórios</a> <a href="#" class="dropdown-item"><i class="ti-wallet"></i> Meu Perfil</a>
                             <div class="dropdown-divider"></div> <a href="#" class="dropdown-item"><i class="ti-settings"></i>
                                 Configurações</a>
-                            <div class="dropdown-divider"></div> <a href="https://www.wrappixel.com/demos/admin-templates/material-pro/material/login.html" class="dropdown-item"><i class="fa fa-power-off"></i>
+                            <div class="dropdown-divider"></div> <a href="{% url 'home:do_logout'%}" class="dropdown-item"><i class="fa fa-power-off"></i>
                                 Logout</a>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span
                                     class="hide-menu">Estoque</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Produtos</a></li>
+                                <li><a href="{% url 'home:produtos' %}">Produtos</a></li>
                                 <li><a href="#">Saída</a></li>
                                 <li><a href="#">Produção</a></li>
                             </ul>
@@ -59,7 +59,7 @@
             <div class="sidebar-footer">
                 <!-- item--><a href="#" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
                 <!-- item--><a href="#" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-                <!-- item--><a href="#" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+                <!-- item--><a href="{% url 'home:do_logout'%}" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
             </div>
             <!-- End Bottom points-->
         </aside>

@@ -7,6 +7,8 @@ from .views import *
 app_name = 'home'
 
 urlpatterns = [
-	url(r'^login/$', do_login ,name='do_login'),
+	url(r'^$', do_login ,name='do_login'),
+	url(r'^logout/$', do_logout ,name='do_logout'),
 	url(r'^home/$', home ,name='home'),
+	url(r'^home/produtos$', product ,name='produtos'),
 ]

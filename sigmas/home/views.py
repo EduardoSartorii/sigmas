@@ -10,13 +10,34 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from  django.views import defaults
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
-def do_login(request):
-	template_name = 'login.html'
-
-	return render(request,template_name)
-
+@login_required
 def home(request):
 	template_name = 'index.html'
 
 	return render(request,template_name)
+
+@login_required
+def product(request):
+	return render(request,'pages/product.html')
+
+def do_login(request):
+	if request.method == 'POST':
+		user = authenticate(username=request.POST['username'], password=request.POST["password"])
+		if user is not None:
+			login(request,user)
+			return redirect('/home')
+		else:
+			messages.error(request, 'Usuário ou senha incorreta')
+	return render(request,'login.html')
+
+def do_logout(request):
+	logout(request)
+	return redirect('/')
+
+
+
+
