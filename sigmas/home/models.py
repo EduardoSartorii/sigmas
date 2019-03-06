@@ -24,7 +24,7 @@ class estoque(models.Model):
 		help_text= 'Informe a categoria do produto',
 		max_length=150,
 		default="", 
-		editable=False)
+		editable=True)
 	preco = models.CharField(
 		'Preço do produto',
 		help_text= 'Digite o preço do produto',

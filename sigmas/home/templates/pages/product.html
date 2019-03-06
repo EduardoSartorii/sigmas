@@ -60,7 +60,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            <button type="button" class="btn waves-effect waves-light btn-secondary"" data-toggle="modal" data-target="#add-contact">Adicionar</button>
+                            <button src = "porra" type="button" class="btn waves-effect waves-light btn-secondary"" data-toggle="modal" data-target="#add-contact">Adicionar</button>
                             <button type="button" class="btn waves-effect waves-light btn-warning">Editar</button>
                             
 
@@ -70,38 +70,39 @@
         <div class="modal-header">
          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h4 class="modal-title" id="myModalLabel">Adiciona novo produto</h4> </div>
-        <div class="modal-body">
-        
-    <from class="form-horizontal form-material" method= 'POST' action= ''>
+        <div class="modal-body">    
+    <form class="form-horizontal form-material" method= "post" action= "{% url 'home:produtos' %}">
             {% csrf_token %}
     <div class="form-group">
     
     <div class="col-md-12 m-b-20">
-    <input type="text" class="form-control" placeholder="Marca" name='marca'> </div>
-             
+    {{form.marca}}
+    </div>         
+    
     <div class="col-md-12 m-b-20">
-    <input type="text" class="form-control" placeholder="Nome" name='nome'> </div>
+    {{form.nome}}
+    </div>                                              
+    
+    <div class="col-md-12 m-b-20">
+    {{form.sabor}}
+    </div>
                                                   
     <div class="col-md-12 m-b-20">
-    <input type="text" class="form-control" placeholder="Sabor" name='sabor'> </div>
+    {{form.categoria}}
+    </div>
                                                   
     <div class="col-md-12 m-b-20">
-    <input type="text" class="form-control" placeholder="Categoria" name='categoria'> </div>
-                                                  
-    <div class="col-md-12 m-b-20">
-    <input type="text" class="form-control" placeholder="Preço" name='preco'> </div>
+    {{form.preco}}
+    </div>
                                                         
     <div class="col-md-12 m-b-20">
-    <input type="text" class="form-control" placeholder="Quantidade" name='quantidade'> </div>                                                       
+    {{form.quantidade}}
+    </div>                                                       
+    <button type="submit" class="btn btn-info waves-effect">Salvar</button>
+    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>    
     </div>
-    </from>
+    </form>
     </div>
-    
-    <div class="modal-footer">
-    
-    <button type="submit" class="btn btn-info waves-effect" data-dismiss="modal" >Salvar</button>
-    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
-        </div>
         </div>
             </div>
               </div>
