@@ -13,16 +13,14 @@ from  django.views import defaults
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .models import *
+from .forms import *
 
 @login_required
 def home(request):
 	template_name = 'index.html'
 
 	return render(request,template_name)
-
-@login_required
-def product(request):
-	return render(request,'pages/product.html')
 
 def do_login(request):
 	if request.method == 'POST':
@@ -37,6 +35,25 @@ def do_login(request):
 def do_logout(request):
 	logout(request)
 	return redirect('/')
+
+@login_required
+def register_product(request):
+	if request.method == 'POST':
+		form = Estoque(request.POST)
+		if form.is_valid():
+			form.save()
+			return render_to_response(request,'pages/product.html', RequestContext(request))
+	else:
+		form = Estoque()
+		return render(request, 'pages/product.html')
+
+@login_required
+def captura_products(request):
+	template_name = 'pages/product.html'
+	capture = estoque.objects.all()
+	context = {'capture':capture,}
+	register_product(request)
+	return render(request,template_name,context)
 
 
 
