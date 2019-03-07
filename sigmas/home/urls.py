@@ -11,4 +11,5 @@ urlpatterns = [
 	url(r'^logout/$', do_logout ,name='do_logout'),
 	url(r'^home/$', home ,name='home'),
 	url(r'^home/produtos/$',captura_products, name='produtos'),
+	url(r'^home/comanda/$',comanda, name='comandas'),
 ]

@@ -36,7 +36,8 @@ def do_logout(request):
 	logout(request)
 	return redirect('/')
 
-
+def comanda(request):
+	return render(request,'pages/comanda.html')
 def captura_products(request):
 	capture = estoque.objects.all()
 	form = EstoqueForm(request.POST or None)
