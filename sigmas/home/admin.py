@@ -14,4 +14,22 @@ class admin_estoque(admin.ModelAdmin):
 		)
 	model = estoque
 	can_delete = True
+class admin_comanda(admin.ModelAdmin):
+	list_display= (
+		'nome_cliente',
+		'sexo',
+		'situacao',
+		'cpf',
+		'comanda',
+		'mesas',
+		'narguiles',
+		'rua',
+		'cidade',
+		'estado',
+		'celular',
+		'email',		
+		)
+	model = comanda
+	can_delete = True
 admin.site.register(estoque, admin_estoque)
+admin.site.register(comanda, admin_comanda)
