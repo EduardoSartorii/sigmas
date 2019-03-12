@@ -14,7 +14,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .models import *
-from .forms import EstoqueForm
+from .forms import EstoqueForm, ComandaForm
 
 @login_required
 def home(request):
@@ -37,13 +37,16 @@ def do_logout(request):
 	return redirect('/')
 
 def comanda(request):
-	return render(request,'pages/comanda.html')
+	form = ComandaForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+	return render(request,'pages/comanda.html',{'form':form,})
+
 def captura_products(request):
 	capture = estoque.objects.all()
 	form = EstoqueForm(request.POST or None)
 	if form.is_valid():
-		form.save()
-		print(form.save())	
+		form.save()	
 	
 	return render(request,'pages/product.html',{'capture':capture,'form':form,})
 
